@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCP_Accounts", "DCP_Accounts\DCP_Accounts.csproj", "{DC90ADE2-8062-4BD0-B05C-53879106514A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCP_Accounts_Api", "DCP_Accounts_Api\DCP_Accounts_Api.csproj", "{DADF3EE5-006B-4264-957C-4AC83616904C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DC90ADE2-8062-4BD0-B05C-53879106514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC90ADE2-8062-4BD0-B05C-53879106514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC90ADE2-8062-4BD0-B05C-53879106514A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADF3EE5-006B-4264-957C-4AC83616904C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADF3EE5-006B-4264-957C-4AC83616904C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADF3EE5-006B-4264-957C-4AC83616904C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADF3EE5-006B-4264-957C-4AC83616904C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
