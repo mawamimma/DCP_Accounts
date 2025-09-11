@@ -17,16 +17,16 @@
         </Border>
         <TextBlock HorizontalAlignment="Left" Height="44" Margin="25,28,0,0" TextWrapping="Wrap" Text="Income Table" VerticalAlignment="Top" Width="284" Foreground="#FFF5CF07" FontSize="40" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="44" Margin="22,-10,0,0" TextWrapping="Wrap" Text="Digital Creation Plan LLC" VerticalAlignment="Top" Width="490" Foreground="#FF0F0466" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="40" Margin="48,149,0,0" TextWrapping="Wrap" Text="ExpenditurID" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="20"/>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="40" Margin="50,202,0,0" TextWrapping="Wrap" Text="IncDetail" VerticalAlignment="Top" Width="97" FontSize="20" FontWeight="Bold"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="51,255,0,0" TextWrapping="Wrap" Text="IncDate" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.719,0.568" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="50,308,0,0" TextWrapping="Wrap" Text="UID" VerticalAlignment="Top" Width="69" FontSize="20" FontWeight="Bold"/>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="40" Margin="52,355,0,0" TextWrapping="Wrap" Text="EntryDate" VerticalAlignment="Top" Width="103" FontSize="20" FontWeight="Bold"/>
-        <TextBox Grid.Column="2" Height="35" Margin="54,148,0,20" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
-        <TextBox Grid.Column="2" Height="35" Margin="55,202,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
-        <TextBox Grid.Column="2" Height="35" Margin="56,255,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
-        <TextBox Grid.Column="2" Height="35" Margin="56,307,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged_1" Background="#FFD6E8FF"/>
-        <DatePicker Grid.Column="2" Margin="58,357,0,0" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Height="35" RenderTransformOrigin="1.784,-2.224" Background="White">
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="87,121,0,0" TextWrapping="Wrap" Text="ExpenditurID" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="20"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="89,174,0,0" TextWrapping="Wrap" Text="IncDetail" VerticalAlignment="Top" Width="97" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="90,227,0,0" TextWrapping="Wrap" Text="IncDate" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.719,0.568" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="89,280,0,0" TextWrapping="Wrap" Text="UID" VerticalAlignment="Top" Width="69" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="91,327,0,0" TextWrapping="Wrap" Text="EntryDate" VerticalAlignment="Top" Width="103" FontSize="20" FontWeight="Bold"/>
+        <TextBox Grid.Column="2" Height="35" Margin="224,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
+        <TextBox Grid.Column="2" Height="35" Margin="55,202,0,0"Margin="225,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
+        <TextBox Grid.Column="2" Height="35" Margin="56,255,0,0"Margin="226,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Background="#FFD6E8FF"/>
+        <TextBox Grid.Column="2" Height="35" Margin="56,307,0,0"Margin="226,279,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged_1" Background="#FFD6E8FF"/>
+        <DatePicker Grid.Column="2" Margin="228,329,0,0" VerticalAlignment="Top" Width="225" HorizontalAlignment="Left" Height="35" RenderTransformOrigin="1.784,-2.224" Background="#FFFBFBFB">
             <DatePicker.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                     <GradientStop Color="#FFA3AEB9"/>
@@ -36,5 +36,12 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
+        <Button Content="Save"
+            Command="{Binding SaveCommand}"
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            Margin="268,391,0,0"
+            VerticalAlignment="Top"
+            Width="120" Height="32" FontSize="20" FontWeight="Bold" Background="#FFD6E8FF"/>
     </Grid>
 </Window>
