@@ -14,6 +14,6 @@ namespace DCP_Accounts.Model
             public string UID { get; set; }
             public DateTime EntryDate { get; set; }
 
-        //dipto
+        //diptoroy
     }
 }
