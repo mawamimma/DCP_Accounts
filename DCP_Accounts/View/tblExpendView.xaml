@@ -3,25 +3,65 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DCP_Accounts.View"
         mc:Ignorable="d"
-        Title="tblExpendView" Height="550" Width="400">
+        Title="tblExpendView" Height="600" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="149*"/>
             <ColumnDefinition Width="251*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Center" Margin="0,77,0,0" TextWrapping="Wrap" Text="Expenditur ID :" VerticalAlignment="Top" Width="78" Height="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="36,108,0,0" TextWrapping="Wrap" Text="Exp Sub Code :" VerticalAlignment="Top" Width="87" Height="16"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,142,0,0" TextWrapping="Wrap" Text="Exp Date :" VerticalAlignment="Top" Width="78" Height="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="37,175,0,0" TextWrapping="Wrap" Text="UID :" VerticalAlignment="Top" Width="78" Height="16"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" Text="Entry Date :" VerticalAlignment="Top" Width="78" Height="16"/>
-        <TextBox Text="{Binding tblExpendModel.ExpenditureID, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
-        <TextBox Text="{Binding tblExpendModel.ExpSubCode, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Grid.Column="1" Height="18"/>
-        <TextBox Text="{Binding tblExpendModel.UID, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
-        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="25,250,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="20"/>
-        <DatePicker Grid.Column="1" Text="{Binding tblExpendModel.ExpDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,141,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <DatePicker Grid.Column="1" Text="{Binding tblExpendModel.EntryDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,204,0,0" VerticalAlignment="Top" Width="120"/>
+        <!-- Labels -->
+        <TextBlock HorizontalAlignment="Center" Margin="0,77,0,0" TextWrapping="Wrap" Text="Expenditure ID :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,108,0,0" TextWrapping="Wrap" Text="Exp Sub Code :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,142,0,0" TextWrapping="Wrap" Text="Exp Date :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,175,0,0" TextWrapping="Wrap" Text="UID :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" Text="Entry Date :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,235,0,0" TextWrapping="Wrap" Text="Password :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,265,0,0" TextWrapping="Wrap" Text="Phone Number :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,295,0,0" TextWrapping="Wrap" Text="Employee ID :" VerticalAlignment="Top" Width="100" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,325,0,0" TextWrapping="Wrap" Text="Entry By :" VerticalAlignment="Top" Width="100" Height="16"/>
+
+        <!-- Inputs -->
+        <TextBox x:Name="txtExpenditureID"
+                 Text="{Binding tblExpendModel.ExpenditureID, Mode=TwoWay}"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,78,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="txtExpSubCode"
+                 Text="{Binding tblExpendModel.ExpSubCode, Mode=TwoWay}"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,110,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <DatePicker x:Name="dpExpDate"
+                    SelectedDate="{Binding tblExpendModel.ExpDate, Mode=TwoWay}"
+                    Grid.Column="1" HorizontalAlignment="Left" Margin="25,141,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="txtUserID"
+                 Text="{Binding tblExpendModel.UID, Mode=TwoWay}"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,177,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <DatePicker x:Name="dpEntryDate"
+                    SelectedDate="{Binding tblExpendModel.EntryDate, Mode=TwoWay}"
+                    Grid.Column="1" HorizontalAlignment="Left" Margin="25,204,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <PasswordBox x:Name="pwdPassword"
+                     Grid.Column="1" HorizontalAlignment="Left" Margin="25,235,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="txtPhoneNumber"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,265,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="txtEmployeeID"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,295,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="txtEntryBy"
+                 Grid.Column="1" HorizontalAlignment="Left" Margin="25,325,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <!-- Save Button -->
+        <Button Content="Save"
+                Command="{Binding SaveCommand}"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="25,370,0,0"
+                VerticalAlignment="Top"
+                Width="120" Height="25"/>
     </Grid>
 </Window>
