@@ -25,3 +25,4 @@
         <DatePicker Grid.Column="1" Text="{Binding tblExpendModel.EntryDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="25,204,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
+
