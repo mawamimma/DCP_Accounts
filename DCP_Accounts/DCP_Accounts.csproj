@@ -1,12 +1,15 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Swashbuckle.AspNetCore.9.0.4\build\Swashbuckle.AspNetCore.props" Condition="Exists('..\packages\Swashbuckle.AspNetCore.9.0.4\build\Swashbuckle.AspNetCore.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+=======
+<Project Sdk="Microsoft.NET.Sdk">
+
+>>>>>>> b73409c4664f83c2e437029643be8e5289dc6c0e
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC90ADE2-8062-4BD0-B05C-53879106514A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
+<<<<<<< HEAD
     <RootNamespace>DCP_Accounts</RootNamespace>
     <AssemblyName>DCP_Accounts</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -36,24 +39,35 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+=======
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+
+    <!-- Optional quality-of-life flags -->
+    <Nullable>enable</Nullable>         <!-- set to 'disable' if you don't want nullable annotations -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- If you want to keep your existing Properties/AssemblyInfo.cs -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+>>>>>>> b73409c4664f83c2e437029643be8e5289dc6c0e
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
+
+  <!-- If you keep appsettings.json and want it copied to output -->
   <ItemGroup>
+<<<<<<< HEAD
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,11 +107,30 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+=======
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+>>>>>>> b73409c4664f83c2e437029643be8e5289dc6c0e
     </None>
   </ItemGroup>
+
+  <!-- PackageReference: add only what you actually need -->
+
+  <!-- Usually not needed in SDK-style; WPF items are auto-discovered.
+       Keep this only if you have special build metadata. -->
+  <!--
   <ItemGroup>
-    <None Include="App.config" />
+    <ApplicationDefinition Include="App.xaml" />
+    <Page Include="MainWindow.xaml" />
+    <Page Include="View\tblExpendView.xaml" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="View\tblExpendView.xaml.cs" />
+    <Compile Include="Model\tblExpendModel.cs" />
+    <Compile Include="ViewModel\tblExpendViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
@@ -111,3 +144,8 @@
     <Error Condition="!Exists('..\packages\Swashbuckle.AspNetCore.9.0.4\build\Swashbuckle.AspNetCore.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Swashbuckle.AspNetCore.9.0.4\build\Swashbuckle.AspNetCore.props'))" />
   </Target>
 </Project>
+=======
+  -->
+
+</Project>
+>>>>>>> b73409c4664f83c2e437029643be8e5289dc6c0e
