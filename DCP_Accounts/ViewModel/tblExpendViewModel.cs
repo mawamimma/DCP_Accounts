@@ -1,10 +1,11 @@
-﻿using DCP_Accounts.Model;
+﻿// DCP_Accounts/ViewModel/tblExpendViewModel.cs
+using DCP_Accounts.Model;
 using System;
 using System.Net.Http;
-using System.Text;
-using System.Text.Json;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace DCP_Accounts.ViewModel
 {
@@ -14,43 +15,42 @@ namespace DCP_Accounts.ViewModel
         public ICommand SaveCommand { get; }
 
         private readonly HttpClient _httpClient;
+        private const string Path = "api/Expend"; // <-- matches your controller route
 
         public tblExpendViewModel()
         {
             tblExpendModel = new tblExpendModel();
-            SaveCommand = new RelayCommand(async _ => await SaveAsync());
 
-            // Replace with your API base URL
-            _httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7163")
-            };
+            // Use the API URL you pinned in launchSettings.json:
+            _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7149") };
+
+            SaveCommand = new RelayCommand(async _ => await SaveAsync());
         }
 
         private async Task SaveAsync()
         {
             try
             {
-                // Serialize manually instead of PostAsJsonAsync
-                var json = JsonSerializer.Serialize(tblExpendModel);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                // If EntryDate left empty in UI, let API set it—no need to prefill here
+                var resp = await _httpClient.PostAsJsonAsync(Path, tblExpendModel);
 
-                var response = await _httpClient.PostAsync("api/tblExpend", content);
+                if (resp.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Data sent to API successfully!");
+                    tblExpendModel = new tblExpendModel(); // optional: reset
+                    return;
+                }
 
-                if (response.IsSuccessStatusCode)
-                {
-                    System.Windows.MessageBox.Show("Data sent to API successfully!");
-                    tblExpendModel = new tblExpendModel(); // Reset form
-                }
-                else
-                {
-                    var error = await response.Content.ReadAsStringAsync();
-                    System.Windows.MessageBox.Show("API Error: " + error);
-                }
+                // Show details to debug quickly
+                var body = await resp.Content.ReadAsStringAsync();
+                var msg = $"API Error\nURL: {_httpClient.BaseAddress}{Path}\n" +
+                          $"Status: {(int)resp.StatusCode} {resp.ReasonPhrase}\n" +
+                          $"Body: {body}";
+                MessageBox.Show(msg);
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("Exception: " + ex.Message);
+                MessageBox.Show("Exception: " + ex.Message);
             }
         }
     }
@@ -58,11 +58,7 @@ namespace DCP_Accounts.ViewModel
     public class RelayCommand : ICommand
     {
         private readonly Func<object, Task> _executeAsync;
-
-        public RelayCommand(Func<object, Task> executeAsync)
-        {
-            _executeAsync = executeAsync;
-        }
+        public RelayCommand(Func<object, Task> executeAsync) => _executeAsync = executeAsync;
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
