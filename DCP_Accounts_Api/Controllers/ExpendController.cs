@@ -2,6 +2,7 @@
 using DCP_Accounts_Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace DCP_Accounts_Api.Controllers
 {
@@ -17,22 +18,21 @@ namespace DCP_Accounts_Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<Expend>>> GetAll()
         {
-            var list = await _db.Expends.ToListAsync();
-            return Ok(list);
+            return await _db.Expends.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<ActionResult<Expend>> Get(int id)
         {
             var item = await _db.Expends.FindAsync(id);
             if (item == null) return NotFound();
-            return Ok(item);
+            return item;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Expend expend)
+        public async Task<ActionResult<Expend>> Create([FromBody] Expend expend)
         {
             if (expend == null) return BadRequest();
             if (!expend.EntryDate.HasValue)
@@ -40,6 +40,7 @@ namespace DCP_Accounts_Api.Controllers
 
             _db.Expends.Add(expend);
             await _db.SaveChangesAsync();
+
             return CreatedAtAction(nameof(Get), new { id = expend.ExpenditurID }, expend);
         }
 
